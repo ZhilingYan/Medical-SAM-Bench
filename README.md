@@ -7,6 +7,7 @@
 [![Project Page](https://img.shields.io/badge/🌐_Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
 [![Paper](https://img.shields.io/badge/📄_Paper-Arxiv-purple)](https://arxiv.org/abs/xxxx.xxxxx)
 [![Demo](https://img.shields.io/badge/🎮_Demo-SliceUI-green)](docs/DEMO.md)
+[![Data](https://img.shields.io/badge/💾_Data-MedBank-orange)](docs/MEDBANK.md)
 [![Model Zoo](https://img.shields.io/badge/🤗_Model-Zoo-red)](docs/MODEL_ZOO.md)
 [![License](https://img.shields.io/badge/📜_License-Apache_2.0-yellow.svg)](LICENSE)
 
@@ -22,30 +23,20 @@
 
 <table>
 <tr>
-<td width="33%" align="center"><b>🧠 Memory-Enhanced</b><br>Selective memory mechanism for robust medical segmentation</td>
-<td width="33%" align="center"><b>🏆 SOTA Performance</b><br>Best results on multiple medical imaging benchmarks</td>
+<td width="33%" align="center"><b>🧠 Memory-Enhanced SOTA</b><br>Selective memory mechanism achieving best performance on medical benchmarks</td>
 <td width="33%" align="center"><b>🔧 Unified Framework</b><br>Fair comparison of all Medical SAM variants</td>
+<td width="33%" align="center"><b>🎮 Interactive Tools</b><br>Demo and local UI for interactive medical image segmentation</td>
 </tr>
 </table>
 
 ## 📋 Abstract
 
-SAMed-2 is a new foundation model for medical image segmentation built upon the SAM-2 architecture. We introduce:
-- 🔄 **Temporal adapter** in the image encoder to capture image correlations
-- 💾 **Confidence-driven memory mechanism** to store high-certainty features for later retrieval
-- 🛡️ **Noise-resistant strategy** to handle large-scale medical datasets
-- 🧠 **Anti-forgetting mechanism** for new tasks or modalities
+SAMed-2 is a new foundation model for medical image segmentation built upon the SAM-2 architecture. Specifically, we introduce a temporal adapter into the image encoder to capture image correlations and a confidence-driven memory mechanism to store high-certainty features for later retrieval. This memory-based strategy counters the pervasive noise in large-scale medical datasets and mitigates catastrophic forgetting when encountering new tasks or modalities.
 
-<details>
-<summary><b>Key Features of This Repository</b></summary>
-
-- ✅ Unified implementation and evaluation framework
-- ✅ Fair comparison across all Medical SAM variants
-- ✅ Easy-to-use Python API for quick inference
-- ✅ Pre-trained models and memory banks available
-- ✅ Support for multiple medical imaging modalities
-
-</details>
+This repository provides:
+- 🔧 Unified implementation and evaluation framework for SAMed-2
+- 🏆 Fair comparison across different medical SAM models
+- 🚀 Easy-to-use interface for testing your own medical images
 
 ## 📰 News
 
@@ -106,10 +97,6 @@ Place it in the root directory of this repository.
 
 ### 4. Quick Start
 
-<table>
-<tr>
-<td>
-
 **🚀 Simple Python API**
 
 ```python
@@ -135,9 +122,6 @@ segmenter.visualize(
 )
 ```
 
-</td>
-<td>
-
 **📊 Benchmark All Models**
 
 ```bash
@@ -155,10 +139,6 @@ python main.py \
 # Or run complete benchmark
 bash run.sh
 ```
-
-</td>
-</tr>
-</table>
 
 ### 5. Evaluation
 
@@ -192,7 +172,7 @@ your_dataset/
 **Run Evaluation**
 
 ```bash
-# Full evaluation on OpticCup dataset
+# Full evaluation on the dataset
 bash run.sh
 ```
 
@@ -230,39 +210,40 @@ Try our interactive demo powered by SliceUI! [Demo Guide](docs/DEMO.md)
 
 [![Demo Video](https://img.youtube.com/vi/DEMO_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=DEMO_VIDEO_ID)
 
-## 📚 Citation
+## 📚 Citation & Contributors
 
-If you find SAMed2 useful in your research, please consider citing:
+If you find SAMed-2 useful in your research, please consider citing:
 
 ```bibtex
-TODO
+@article{yan2025samed2,
+  title={SAMed-2: Selective Memory Enhanced Medical Segment Anything Model},
+  author={Yan, Zhiling and Song, Sifan and Song, Dingjie and Li, Yiwei and Zhou, Rong and Sun, Weixiang and Chen, Zhennong and Kim, Sekeun and Ren, Hui and Liu, Tianming and Li, Quanzheng and Li, Xiang and He, Lifang and Sun, Lichao},
+  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  year={2025}
+}
 ```
 
-## 🤝 Contributors
+**Contributors:**
 
-<div align="center">
-
-[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx) · 
-[Sifan Song²](https://scholar.google.com/citations?user=xxx) · 
-[Dingjie Song¹](https://scholar.google.com/citations?user=xxx) · 
-[Yiwei Li³](https://scholar.google.com/citations?user=xxx) · 
-[Rong Zhou¹](https://scholar.google.com/citations?user=xxx) · 
-[Weixiang Sun⁴](https://scholar.google.com/citations?user=xxx)  
-[Zhennong Chen²](https://scholar.google.com/citations?user=xxx) · 
-[Sekeun Kim²](https://scholar.google.com/citations?user=xxx) · 
-[Hui Ren²](https://scholar.google.com/citations?user=xxx) · 
-[Tianming Liu³](https://scholar.google.com/citations?user=xxx) · 
-[Quanzheng Li²](https://scholar.google.com/citations?user=xxx)  
-[Xiang Li²](https://scholar.google.com/citations?user=xxx) · 
-[Lifang He¹](https://scholar.google.com/citations?user=xxx) · 
+[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx), 
+[Sifan Song²](https://scholar.google.com/citations?user=xxx), 
+[Dingjie Song¹](https://scholar.google.com/citations?user=xxx), 
+[Yiwei Li³](https://scholar.google.com/citations?user=xxx), 
+[Rong Zhou¹](https://scholar.google.com/citations?user=xxx), 
+[Weixiang Sun⁴](https://scholar.google.com/citations?user=xxx), 
+[Zhennong Chen²](https://scholar.google.com/citations?user=xxx), 
+[Sekeun Kim²](https://scholar.google.com/citations?user=xxx), 
+[Hui Ren²](https://scholar.google.com/citations?user=xxx), 
+[Tianming Liu³](https://scholar.google.com/citations?user=xxx), 
+[Quanzheng Li²](https://scholar.google.com/citations?user=xxx), 
+[Xiang Li²](https://scholar.google.com/citations?user=xxx), 
+[Lifang He¹](https://scholar.google.com/citations?user=xxx), 
 [Lichao Sun¹](https://scholar.google.com/citations?user=xxx)
 
-<sub>
-¹Lehigh University &nbsp;&nbsp;|&nbsp;&nbsp; ²Massachusetts General Hospital and Harvard Medical School  
-³University of Georgia, Athens &nbsp;&nbsp;|&nbsp;&nbsp; ⁴University of Notre Dame
-</sub>
-
-</div>
+¹Lehigh University  
+²Massachusetts General Hospital and Harvard Medical School  
+³University of Georgia, Athens  
+⁴University of Notre Dame
 
 ## 🙏 Acknowledgements
 
