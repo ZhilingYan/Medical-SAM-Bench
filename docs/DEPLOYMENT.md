@@ -38,7 +38,7 @@ docs/
    - Click "Save"
 
 2. **Access your site**:
-   - Your site will be available at: `https://yourusername.github.io/SAMed2/`
+   - Your site will be available at: `https://zhilingyan.github.io/Medical-SAM-Bench/`
 
 ### Option 2: Custom Domain
 
