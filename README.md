@@ -8,7 +8,6 @@
 [![Paper](https://img.shields.io/badge/📄_Paper-Arxiv-purple)](https://arxiv.org/abs/xxxx.xxxxx)
 [![Demo](https://img.shields.io/badge/🎮_Demo-SliceUI-green)](docs/DEMO.md)
 [![Data](https://img.shields.io/badge/💾_Data-MedBank-orange)](docs/MEDBANK.md)
-[![Model Zoo](https://img.shields.io/badge/🤗_Model-Zoo-red)](docs/MODEL_ZOO.md)
 [![License](https://img.shields.io/badge/📜_License-Apache_2.0-yellow.svg)](LICENSE)
 
 **The Official Repository of SAMed-2 & Medical SAM Benchmark**
