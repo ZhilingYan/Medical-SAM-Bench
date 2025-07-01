@@ -1,4 +1,4 @@
-# 🏥 SAMed2: Official Repository & Medical SAM Benchmark
+# 🏥 SAMed-2 & Medical SAM Benchmark
 
 ## SAMed-2: Selective Memory Enhanced Medical Segment Anything Model
 
@@ -17,29 +17,9 @@ We provide unified evaluation and comparison of multiple Medical SAM variants in
 - **SAM2** - [Arxiv]()
 - **SAM** - [Arxiv]()
 
-[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx),
-[Sifan Song²](https://scholar.google.com/citations?user=xxx),
-[Dingjie Song¹](https://scholar.google.com/citations?user=xxx),
-[Yiwei Li³](https://scholar.google.com/citations?user=xxx),
-[Rong Zhou¹](https://scholar.google.com/citations?user=xxx),
-[Weixiang Sun⁴](https://scholar.google.com/citations?user=xxx),
-[Zhennong Chen²](https://scholar.google.com/citations?user=xxx),
-[Sekeun Kim²](https://scholar.google.com/citations?user=xxx),
-[Hui Ren²](https://scholar.google.com/citations?user=xxx),
-[Tianming Liu³](https://scholar.google.com/citations?user=xxx),
-[Quanzheng Li²](https://scholar.google.com/citations?user=xxx),
-[Xiang Li²](https://scholar.google.com/citations?user=xxx),
-[Lifang He¹](https://scholar.google.com/citations?user=xxx),
-[Lichao Sun¹](https://scholar.google.com/citations?user=xxx)
-
-¹Lehigh University
-²Massachusetts General Hospital and Harvard Medical School
-³University of Georgia, Athens
-⁴University of Notre Dame 
-
 ## Abstract
 
-In this work, we propose SAMed-2, a
+SAMed-2 is a
 new foundation model for medical image segmentation built upon the
 SAM-2 architecture. Specifically, we introduce a temporal adapter into
 the image encoder to capture image correlations and a confidence-driven
@@ -48,8 +28,8 @@ This memory-based strategy counters the pervasive noise in large-scale
 medical datasets and mitigates catastrophic forgetting when encountering
 new tasks or modalities.
 
-**As a comprehensive benchmark**, this repository provides:
-- 🔧 Unified implementation and evaluation framework for multiple Medical SAM variants.
+This repository provides:
+- 🔧 Unified implementation and evaluation framework for SAMed-2.
 - 🏆 Fair comparison across different medical SAM models.
 - 🚀 Easy-to-use interface for testing your own medical images.
 
@@ -108,22 +88,25 @@ Memory bank list is saved during pre training of SAMed-2. It could be downloaded
 
 ### 4. Quick Start
 
-Run a segmentation case with SAMed2:
+**🚀 Segment a Medical Image in Just a Few Lines:**
 
-```bash
-# Example: Segment optic cup in fundus images
-python main.py \
-    -net samed2 \
-    -exp_name quick_test \
-    -sam_ckpt checkpoints/latest_epoch_0217.pth \
-    -sam_config sam2_hiera_s \
-    -image_size 1024 \
-    -out_size 1024 \
-    -b 1 \
-    -data_path /path/to/your/data \
+```python
+from predict import MedicalSegmenter
+
+# Initialize segmenter
+segmenter = MedicalSegmenter(model_type='samed2', 
+                             checkpoint_path='checkpoints/latest_epoch_0217.pth')
+
+# Segment an image with bounding box
+result = segmenter.predict('medical_image.png', box=[100, 100, 900, 900])
+
+# Get results
+mask = result['mask']  # Binary segmentation mask
+
+# Save visualization
+segmenter.visualize('medical_image.png', mask, 'result.jpg')
+
 ```
-
-TODO
 
 ### 5. Evaluation
 
@@ -164,7 +147,7 @@ bash run.sh
 - `-net`: Model type (`samed2`, `medsam2`, `sam2`, `medsam`, `sam`)
 - `-exp_name`: Experiment name for logging
 - `-sam_ckpt`: Path to model checkpoint
-- `-sam_config`: SAM2 configuration file
+- `-sam_config`: Configuration file
 - `-image_size`: Input image size (default: 1024)
 - `-out_size`: Output size (default: 1024)
 - `-b`: Batch size
@@ -211,4 +194,25 @@ This work builds upon several excellent projects:
 - [MedSAM](https://github.com/bowang-lab/MedSAM) - Inspiration for medical adaptation
 - [SliceUI](https://github.com/yourusername/sliceUI) - Interactive demo interface
 
-We thank the authors for their outstanding contributions to the community. 
+We thank the authors for their outstanding contributions to the community:
+
+[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx),
+[Sifan Song²](https://scholar.google.com/citations?user=xxx),
+[Dingjie Song¹](https://scholar.google.com/citations?user=xxx),
+[Yiwei Li³](https://scholar.google.com/citations?user=xxx),
+[Rong Zhou¹](https://scholar.google.com/citations?user=xxx),
+[Weixiang Sun⁴](https://scholar.google.com/citations?user=xxx),
+[Zhennong Chen²](https://scholar.google.com/citations?user=xxx),
+[Sekeun Kim²](https://scholar.google.com/citations?user=xxx),
+[Hui Ren²](https://scholar.google.com/citations?user=xxx),
+[Tianming Liu³](https://scholar.google.com/citations?user=xxx),
+[Quanzheng Li²](https://scholar.google.com/citations?user=xxx),
+[Xiang Li²](https://scholar.google.com/citations?user=xxx),
+[Lifang He¹](https://scholar.google.com/citations?user=xxx),
+[Lichao Sun¹](https://scholar.google.com/citations?user=xxx)
+
+¹Lehigh University
+²Massachusetts General Hospital and Harvard Medical School
+³University of Georgia, Athens
+⁴University of Notre Dame 
+
