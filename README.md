@@ -182,10 +182,6 @@ python main.py -net sam -exp_name ${DATASET} -sam_ckpt checkpoints/sam_vit_b_01e
 
 > 💡 **Common parameters**: `-image_size 1024 -data_path /path/to/data -val_file_dir /path/to/test.txt`
 
-**🚀 Run complete benchmark**
-```bash
-bash run.sh  # Evaluates all 5 models on your dataset
-```
 
 ### 5. Evaluation
 
