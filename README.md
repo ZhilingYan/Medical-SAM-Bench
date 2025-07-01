@@ -117,22 +117,74 @@ segmenter.visualize(
 )
 ```
 
-**📊 Benchmark All Models**
+**📊 Benchmark Medical SAM Models**
 
+Choose from 5 supported models to evaluate on your dataset:
+
+<table>
+<tr>
+<td>
+
+**🏆 SAMed-2** (Ours)
 ```bash
-# Test on OpticCup dataset
 python main.py \
-    -net samed2 \
-    -exp_name OpticCup \
-    -sam_ckpt checkpoints/latest_epoch_0217.pth \
-    -sam_config sam2_hiera_s \
-    -image_size 1024 \
-    -b 4 \
-    -data_path "/path/to/Data" \
-    -val_file_dir "/path/to/OpticCup/test.txt"
+  -net samed2 \
+  -exp_name ${DATASET} \
+  -sam_ckpt checkpoints/latest_epoch_0217.pth \
+  -sam_config sam2_hiera_s
+```
 
-# Or run complete benchmark
-bash run.sh
+</td>
+<td>
+
+**🔬 MedSAM2**
+```bash
+python main.py \
+  -net medsam2 \
+  -exp_name ${DATASET} \
+  -sam_ckpt checkpoints/MedSAM2_pretrain.pth \
+  -sam_config sam2_hiera_t_original
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+**🏥 MedSAM**
+```bash
+python main.py \
+  -net medsam \
+  -exp_name ${DATASET} \
+  -sam_ckpt checkpoints/medsam_vit_b.pth
+```
+
+</td>
+<td>
+
+**🎯 SAM2**
+```bash
+python main.py \
+  -net sam2 \
+  -exp_name ${DATASET} \
+  -sam_ckpt checkpoints/sam2_hiera_small.pt \
+  -sam_config sam2_hiera_s_original
+```
+
+</td>
+</tr>
+</table>
+
+**🔷 Original SAM**
+```bash
+python main.py -net sam -exp_name ${DATASET} -sam_ckpt checkpoints/sam_vit_b_01ec64.pth
+```
+
+> 💡 **Common parameters**: `-image_size 1024 -data_path /path/to/data -val_file_dir /path/to/test.txt`
+
+**🚀 Run complete benchmark**
+```bash
+bash run.sh  # Evaluates all 5 models on your dataset
 ```
 
 ### 5. Evaluation
