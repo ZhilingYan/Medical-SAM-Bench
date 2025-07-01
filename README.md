@@ -1,6 +1,6 @@
-# 🏥 SAMed2: Segment Anything in Medical Images 2
+# 🏥 SAMed2
 
-## SAMed2: Segment Anything in Medical Images with Learnable Prompting and Cross-Scale Consistency
+## SAMed2: Selective Memory Enhanced Medical Segment Anything Model
 
 [![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://samed2.github.io)
 [![Demo](https://img.shields.io/badge/Demo-SliceUI-green)](docs/DEMO.md)
@@ -8,23 +8,26 @@
 [![Model Zoo](https://img.shields.io/badge/Model-Zoo-red)](docs/MODEL_ZOO.md)
 [![Paper](https://img.shields.io/badge/Paper-MICCAI2025-purple)](https://arxiv.org/abs/xxxx.xxxxx)
 
-[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx), 
-[Author2²](https://example.com), 
-[Author3³](https://example.com), 
-[Author4⁴](https://example.com), 
-[Author5⁵](https://example.com)
+[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx)
 
-¹Lehigh University, ²Institution2, ³Institution3, ⁴Institution4, ⁵Institution5
+¹Lehigh University
 
 ## Abstract
 
-SAMed2 is a specialized adaptation of the Segment Anything Model 2 (SAM2) for medical image segmentation. By incorporating learnable prompting mechanisms and cross-scale consistency, SAMed2 achieves state-of-the-art performance across diverse medical imaging modalities including CT, MRI, ultrasound, dermoscopy, and microscopy images. Our approach introduces a memory-efficient training strategy that enables effective fine-tuning on large-scale medical datasets while maintaining the zero-shot generalization capabilities of the original SAM2 model.
+In this work, we propose SAMed-2, a
+new foundation model for medical image segmentation built upon the
+SAM-2 architecture. Specifically, we introduce a temporal adapter into
+the image encoder to capture image correlations and a confidence-driven
+memory mechanism to store high-certainty features for later retrieval.
+This memory-based strategy counters the pervasive noise in large-scale
+medical datasets and mitigates catastrophic forgetting when encountering
+new tasks or modalities.
 
 ## 📰 News
 
-- **[06/2025]** We provide a demo tool to play with SAMed2 - try it out with your medical images!
+- **[07/2025]** We provide a demo tool to play with SAMed2 - try it out with your medical images!
 - **[06/2025]** 🎉 SAMed2 is accepted by MICCAI 2025!
-- **[06/2025]** 🔥 We released SAMed2 - pushing the boundaries of medical image segmentation!
+- **[06/2025]** 🔥 We released SAMed2!
 
 ## 📜 Code License
 
@@ -39,8 +42,8 @@ This project is released under the [Apache 2.0 license](LICENSE).
 Clone this repository and navigate to the folder:
 
 ```bash
-git clone https://github.com/yourusername/SAMed2.git
-cd SAMed2/Code/SAMed2
+git clone https://github.com/ZhilingYan/Medical-SAM-Bench.git
+cd Medical-SAM-Bench
 ```
 
 ### 2. Install Package
@@ -61,15 +64,15 @@ pip install -r requirements.txt
 
 Download pretrained model weights from our [Model Zoo](docs/MODEL_ZOO.md).
 
-| Model | Base Architecture | Medical Fine-tuned | Download | Size |
-|-------|------------------|-------------------|----------|------|
-| SAMed2 | SAM2-Hiera-S | ✓ | [latest_epoch_0217.pth](https://drive.google.com/xxx) | 223MB |
-| MedSAM2 | SAM2-Hiera-T | ✓ | [MedSAM2_pretrain.pth](https://drive.google.com/xxx) | 74MB |
-| MedSAM | SAM-ViT-B | ✓ | [medsam_vit_b.pth](https://drive.google.com/xxx) | 358MB |
-| SAM2 | SAM2-Hiera-S | ✗ | [sam2_hiera_small.pt](https://drive.google.com/xxx) | 176MB |
-| SAM | SAM-ViT-B | ✗ | [sam_vit_b_01ec64.pth](https://drive.google.com/xxx) | 358MB |
+| Model | Base Architecture | Medical Fine-tuned | Download |
+|-------|------------------|-------------------|----------|
+| SAMed2 | SAM2-Hiera-S | ✓ | [latest_epoch_0217.pth](https://drive.google.com/file/d/1JVmZnpWip7AIi8o9J1heog_Kl5uHGHcP/view?usp=sharing) |
+| MedSAM2 | SAM2-Hiera-T | ✓ | [MedSAM2_pretrain.pth](https://drive.google.com/file/d/1XQmJ13-SahH-57eH1-UabU1OpGpoTZWT/view?usp=sharing) |
+| MedSAM | SAM-ViT-B | ✓ | [medsam_vit_b.pth](https://drive.google.com/file/d/1V81_3KuJ-7q1gzLYcQFPCTAAymfkxh6Y/view?usp=sharing) |
+| SAM2 | SAM2-Hiera-S | ✗ | [sam2_hiera_small.pt](https://drive.google.com/file/d/1bNtsqOCRnzDOb_10EN9bAACLPew32yus/view?usp=sharing) |
+| SAM | SAM-ViT-B | ✗ | [sam_vit_b_01ec64.pth](https://drive.google.com/file/d/1LgRKsBkCYOeQQRWyF1RnXZgwe-_xfR0_/view?usp=sharing) |
 
-Place downloaded weights in `Code/SAMed2/checkpoints/`.
+Place downloaded weights and put in `./checkpoints/`.
 
 ### 4. Quick Start
 
@@ -86,15 +89,15 @@ python main.py \
     -out_size 1024 \
     -b 1 \
     -data_path /path/to/your/data \
-    -train_file_dir /path/to/test_list.txt \
-    -val_file_dir /path/to/test_list.txt
 ```
+
+TODO
 
 ### 5. Evaluation
 
 **Download Datasets**
 
-Download evaluation datasets from [MedBank](docs/MEDBANK.md) or prepare your own medical images.
+We provide two datasets: [Optic Cup](https://drive.google.com/file/d/1jayJ9q627t6kNXNsacfW3b8i-oVPJ0wz/view?usp=sharing) and [Brain Tumor](https://drive.google.com/file/d/1WuJ8fD2stAqUKxYzsws2mMgS3M6JtFXK/view?usp=sharing) or prepare your own medical images.
 
 **Prepare Your Own Dataset**
 
@@ -111,18 +114,11 @@ your_dataset/
 │   └── ...
 └── test.txt  # List of test image names
 ```
+TODO
 
 Create a preprocessing script:
 ```python
 # preprocess_data.py
-import os
-import numpy as np
-from PIL import Image
-
-def preprocess_medical_images(input_dir, output_dir, target_size=1024):
-    """Preprocess medical images for SAMed2"""
-    # Your preprocessing code here
-    pass
 ```
 
 **Run Evaluation**
@@ -149,18 +145,18 @@ bash run.sh
 
 **Expected Results**
 
-| Dataset | Model | IoU | Dice |
-|---------|-------|-----|------|
-| OpticCup | SAM | 0.821 | 0.892 |
-| OpticCup | MedSAM | 0.856 | 0.914 |
-| OpticCup | SAM2 | 0.843 | 0.906 |
-| OpticCup | MedSAM2 | 0.871 | 0.925 |
-| OpticCup | **SAMed2** | **0.893** | **0.941** |
-| BrainTumor | SAM | 0.756 | 0.842 |
-| BrainTumor | MedSAM | 0.812 | 0.887 |
-| BrainTumor | SAM2 | 0.798 | 0.876 |
-| BrainTumor | MedSAM2 | 0.834 | 0.901 |
-| BrainTumor | **SAMed2** | **0.867** | **0.923** |
+| Dataset | Model | Dice |
+|---------|-------|------|
+| OpticCup | SAM | ~0.61 |
+| OpticCup | MedSAM | ~0.86 |
+| OpticCup | SAM2 | ~0.62 |
+| OpticCup | MedSAM2 | ~0.40 |
+| OpticCup | **SAMed2** | **~0.90** |
+| BrainTumor | SAM | ~0.56 |
+| BrainTumor | MedSAM | ~0.60 |
+| BrainTumor | SAM2 | ~0.44 |
+| BrainTumor | MedSAM2 | ~0.581 |
+| BrainTumor | **SAMed2** | **~0.67** |
 
 ## 🎮 Demo
 
@@ -173,13 +169,7 @@ Try our interactive demo powered by SliceUI! [Demo Guide](docs/DEMO.md)
 If you find SAMed2 useful in your research, please consider citing:
 
 ```bibtex
-@inproceedings{yan2025samed2,
-  title={SAMed2: Segment Anything in Medical Images with Learnable Prompting and Cross-Scale Consistency},
-  author={Yan, Zhiling and others},
-  booktitle={Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
-  year={2025},
-  organization={Springer}
-}
+TODO
 ```
 
 ## 🙏 Acknowledgement
