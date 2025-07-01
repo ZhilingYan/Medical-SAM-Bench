@@ -74,6 +74,8 @@ Download pretrained model weights from our [Model Zoo](docs/MODEL_ZOO.md).
 
 Place downloaded weights and put in `./checkpoints/`.
 
+Memory bank list is saved during pre training of SAMed-2. It could be downloaded [HERE](https://drive.google.com/file/d/1nrq9GRhlCUG7ha-RuuQktODyfK1UKbwL/view?usp=sharing). Put it directly in the main folder of this repo.
+
 ### 4. Quick Start
 
 Run a segmentation case with SAMed2:
