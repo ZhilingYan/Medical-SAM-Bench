@@ -12,7 +12,7 @@
 
 **The Official Repository of SAMed-2 & Medical SAM Benchmark**
 
-[**Installation**](#-getting-started) • [**Quick Start**](#4-quick-start) • [**Models**](#3-model-zoo) • [**Citation**](#-citation--contributors)
+[**Installation**](#-getting-started) • [**Models**](#3-model-zoo) • [**Quick Start**](#4-quick-start) • [**Citation**](#-citation--contributors)
 
 </div>
 
