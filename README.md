@@ -23,7 +23,7 @@
 
 <table>
 <tr>
-<td width="33%" align="center"><b>🧠 Memory-Enhanced SOTA</b><br>Selective memory mechanism achieving best performance on medical benchmarks</td>
+<td width="33%" align="center"><b>🧠 Memory-Enhanced SOTA</b><br>Best performance on medical benchmarks</td>
 <td width="33%" align="center"><b>🔧 Unified Framework</b><br>Fair comparison of all Medical SAM variants</td>
 <td width="33%" align="center"><b>🎮 Interactive Tools</b><br>Demo and local UI for interactive medical image segmentation</td>
 </tr>
@@ -32,11 +32,6 @@
 ## 📋 Abstract
 
 SAMed-2 is a new foundation model for medical image segmentation built upon the SAM-2 architecture. Specifically, we introduce a temporal adapter into the image encoder to capture image correlations and a confidence-driven memory mechanism to store high-certainty features for later retrieval. This memory-based strategy counters the pervasive noise in large-scale medical datasets and mitigates catastrophic forgetting when encountering new tasks or modalities.
-
-This repository provides:
-- 🔧 Unified implementation and evaluation framework for SAMed-2
-- 🏆 Fair comparison across different medical SAM models
-- 🚀 Easy-to-use interface for testing your own medical images
 
 ## 📰 News
 
