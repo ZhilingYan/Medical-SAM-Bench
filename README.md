@@ -2,7 +2,7 @@
 
 # 🏥 SAMed-2: Selective Memory Enhanced Medical SAM
 
-### *State-of-the-Art Medical Image Segmentation with Memory-Enhanced SAM*
+### *Medical Image Segmentation with Memory-Enhanced SAM*
 
 [![Project Page](https://img.shields.io/badge/🌐_Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
 [![Paper](https://img.shields.io/badge/📄_Paper-Arxiv-purple)](https://arxiv.org/abs/xxxx.xxxxx)
@@ -12,7 +12,7 @@
 
 **The Official Repository of SAMed-2 & Medical SAM Benchmark**
 
-[**Installation**](#-getting-started) • [**Quick Start**](#4-quick-start) • [**Models**](#3-model-zoo) • [**Results**](#-performance-comparison) • [**Citation**](#-citation)
+[**Installation**](#-getting-started) • [**Quick Start**](#4-quick-start) • [**Models**](#3-model-zoo) • [**Citation**](#-citation--contributors)
 
 </div>
 
@@ -118,68 +118,24 @@ segmenter.visualize(
 
 **📊 Benchmark Medical SAM Models**
 
-Choose from 5 supported models to evaluate on your dataset:
-
-<table>
-<tr>
-<td>
-
-**🏆 SAMed-2** (Ours)
 ```bash
-python main.py \
-  -net samed2 \
-  -exp_name ${DATASET} \
-  -sam_ckpt checkpoints/latest_epoch_0217.pth \
-  -sam_config sam2_hiera_s
+# 🏆 SAMed-2 (Ours)
+python main.py -net samed2 -sam_ckpt checkpoints/latest_epoch_0217.pth -sam_config sam2_hiera_s
+
+# 🔬 MedSAM2
+python main.py -net medsam2 -sam_ckpt checkpoints/MedSAM2_pretrain.pth -sam_config sam2_hiera_t_original
+
+# 🏥 MedSAM
+python main.py -net medsam -sam_ckpt checkpoints/medsam_vit_b.pth
+
+# 🎯 SAM2
+python main.py -net sam2 -sam_ckpt checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s_original
+
+# 🔷 SAM
+python main.py -net sam -sam_ckpt checkpoints/sam_vit_b_01ec64.pth
 ```
 
-</td>
-<td>
-
-**🔬 MedSAM2**
-```bash
-python main.py \
-  -net medsam2 \
-  -exp_name ${DATASET} \
-  -sam_ckpt checkpoints/MedSAM2_pretrain.pth \
-  -sam_config sam2_hiera_t_original
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-**🏥 MedSAM**
-```bash
-python main.py \
-  -net medsam \
-  -exp_name ${DATASET} \
-  -sam_ckpt checkpoints/medsam_vit_b.pth
-```
-
-</td>
-<td>
-
-**🎯 SAM2**
-```bash
-python main.py \
-  -net sam2 \
-  -exp_name ${DATASET} \
-  -sam_ckpt checkpoints/sam2_hiera_small.pt \
-  -sam_config sam2_hiera_s_original
-```
-
-</td>
-</tr>
-</table>
-
-**🔷 Original SAM**
-```bash
-python main.py -net sam -exp_name ${DATASET} -sam_ckpt checkpoints/sam_vit_b_01ec64.pth
-```
-
-> 💡 **Common parameters**: `-image_size 1024 -data_path /path/to/data -val_file_dir /path/to/test.txt`
+> 💡 **Common**: `-exp_name ${DATASET} -image_size 1024 -data_path /path/to/data -val_file_dir /path/to/test.txt`
 
 
 ### 5. Evaluation
