@@ -2,7 +2,7 @@
 
 ## SAMed2: Selective Memory Enhanced Medical Segment Anything Model
 
-[![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://samed2.github.io)
+[![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
 [![Demo](https://img.shields.io/badge/Demo-SliceUI-green)](docs/DEMO.md)
 [![Data](https://img.shields.io/badge/Data-MedBank-orange)](docs/MEDBANK.md)
 [![Model Zoo](https://img.shields.io/badge/Model-Zoo-red)](docs/MODEL_ZOO.md)
