@@ -1,16 +1,41 @@
-# 🏥 SAMed2
+# 🏥 SAMed2: Official Repository & Medical SAM Benchmark
 
-## SAMed2: Selective Memory Enhanced Medical Segment Anything Model
+## SAMed-2: Selective Memory Enhanced Medical Segment Anything Model
 
-[![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
+[![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
 [![Demo](https://img.shields.io/badge/Demo-SliceUI-green)](docs/DEMO.md)
 [![Data](https://img.shields.io/badge/Data-MedBank-orange)](docs/MEDBANK.md)
 [![Model Zoo](https://img.shields.io/badge/Model-Zoo-red)](docs/MODEL_ZOO.md)
-[![Paper](https://img.shields.io/badge/Paper-MICCAI2025-purple)](https://arxiv.org/abs/xxxx.xxxxx)
+[![Paper](https://img.shields.io/badge/Paper-Arxiv-purple)](https://arxiv.org/abs/xxxx.xxxxx)
 
-[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx)
+**🔥 This is the official repository of SAMed-2 and a comprehensive benchmark for Medical SAM models!**
+
+We provide unified evaluation and comparison of multiple Medical SAM variants including:
+- **SAMed2** (Ours) - [Arxiv]()
+- **MedSAM2** - [Arxiv]()
+- **MedSAM** - [Arxiv]()
+- **SAM2** - [Arxiv]()
+- **SAM** - [Arxiv]()
+
+[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx),
+[Sifan Song²](https://scholar.google.com/citations?user=xxx),
+[Dingjie Song¹](https://scholar.google.com/citations?user=xxx),
+[Yiwei Li³](https://scholar.google.com/citations?user=xxx),
+[Rong Zhou¹](https://scholar.google.com/citations?user=xxx),
+[Weixiang Sun⁴](https://scholar.google.com/citations?user=xxx),
+[Zhennong Chen²](https://scholar.google.com/citations?user=xxx),
+[Sekeun Kim²](https://scholar.google.com/citations?user=xxx),
+[Hui Ren²](https://scholar.google.com/citations?user=xxx),
+[Tianming Liu³](https://scholar.google.com/citations?user=xxx),
+[Quanzheng Li²](https://scholar.google.com/citations?user=xxx),
+[Xiang Li²](https://scholar.google.com/citations?user=xxx),
+[Lifang He¹](https://scholar.google.com/citations?user=xxx),
+[Lichao Sun¹](https://scholar.google.com/citations?user=xxx)
 
 ¹Lehigh University
+²Massachusetts General Hospital and Harvard Medical School
+³University of Georgia, Athens
+⁴University of Notre Dame 
 
 ## Abstract
 
@@ -23,9 +48,14 @@ This memory-based strategy counters the pervasive noise in large-scale
 medical datasets and mitigates catastrophic forgetting when encountering
 new tasks or modalities.
 
+**As a comprehensive benchmark**, this repository provides:
+- 🔧 Unified implementation and evaluation framework for multiple Medical SAM variants.
+- 🏆 Fair comparison across different medical SAM models.
+- 🚀 Easy-to-use interface for testing your own medical images.
+
 ## 📰 News
 
-- **[07/2025]** We provide a demo tool to play with SAMed2 - try it out with your medical images!
+- **[07/2025]** We provide a demo tool to play with SAMed-2 - try it out with your medical images!
 - **[06/2025]** 🎉 SAMed2 is accepted by MICCAI 2025!
 - **[06/2025]** 🔥 We released SAMed2!
 
@@ -66,7 +96,7 @@ Download pretrained model weights from our [Model Zoo](docs/MODEL_ZOO.md).
 
 | Model | Base Architecture | Medical Fine-tuned | Download |
 |-------|------------------|-------------------|----------|
-| SAMed2 | SAM2-Hiera-S | ✓ | [latest_epoch_0217.pth](https://drive.google.com/file/d/1JVmZnpWip7AIi8o9J1heog_Kl5uHGHcP/view?usp=sharing) |
+| **SAMed2** ⭐ | SAM2-Hiera-S | ✓ | [latest_epoch_0217.pth](https://drive.google.com/file/d/1JVmZnpWip7AIi8o9J1heog_Kl5uHGHcP/view?usp=sharing) |
 | MedSAM2 | SAM2-Hiera-T | ✓ | [MedSAM2_pretrain.pth](https://drive.google.com/file/d/1XQmJ13-SahH-57eH1-UabU1OpGpoTZWT/view?usp=sharing) |
 | MedSAM | SAM-ViT-B | ✓ | [medsam_vit_b.pth](https://drive.google.com/file/d/1V81_3KuJ-7q1gzLYcQFPCTAAymfkxh6Y/view?usp=sharing) |
 | SAM2 | SAM2-Hiera-S | ✗ | [sam2_hiera_small.pt](https://drive.google.com/file/d/1bNtsqOCRnzDOb_10EN9bAACLPew32yus/view?usp=sharing) |
