@@ -119,21 +119,15 @@ We provide two datasets: [Optic Cup](https://drive.google.com/file/d/1jayJ9q627t
 For custom datasets, organize your data as follows:
 ```
 your_dataset/
-├── images/
-│   ├── image_001.png
-│   ├── image_002.png
+├── image/
+│   ├── case_idx_slice_001.png
+│   ├── case_idx_slice_002.png
 │   └── ...
-├── masks/
-│   ├── image_001.png
-│   ├── image_002.png
+├── mask/
+│   ├── case_idx_slice_001.png
+│   ├── case_idx_slice_002.png
 │   └── ...
 └── test.txt  # List of test image names
-```
-TODO
-
-Create a preprocessing script:
-```python
-# preprocess_data.py
 ```
 
 **Run Evaluation**
