@@ -355,4 +355,89 @@ def random_box(multi_rater):
 
     return x_min, x_max, y_min, y_max
 
+def vis_image(imgs, pred_masks, gt_masks=None, save_path='result.jpg', reverse=False, points=None):
+    """
+    Visualize segmentation results with optional ground truth masks
+    
+    Args:
+        imgs: Input images tensor [B, C, H, W]
+        pred_masks: Predicted masks tensor [B, C, H, W]
+        gt_masks: Ground truth masks tensor [B, C, H, W] (optional)
+        save_path: Path to save visualization
+        reverse: Whether to reverse mask values
+        points: Optional points to visualize
+    """
+    b, c, h, w = pred_masks.size()
+    dev = pred_masks.get_device()
+    row_num = min(b, 4)
 
+    if torch.max(pred_masks) > 1 or torch.min(pred_masks) < 0:
+        pred_masks = torch.sigmoid(pred_masks)
+
+    if reverse:
+        pred_masks = 1 - pred_masks
+        if gt_masks is not None:
+            gt_masks = 1 - gt_masks
+        
+    # Create overlay visualization - blend image with mask
+    imgs = torchvision.transforms.Resize((h, w))(imgs)
+    if imgs.size(1) == 1:
+        imgs = imgs[:, 0, :, :].unsqueeze(1).expand(b, 3, h, w)
+    
+    # Normalize images to [0,1] if needed
+    if imgs.max() > 1:
+        imgs = imgs / 255.0
+    
+    # Create colored masks
+    pred_masks_binary = (pred_masks > 0.5).float()
+    
+    # Create overlay images for each sample
+    overlay_images = []
+    for i in range(min(b, row_num)):
+        # Get single image and mask
+        img = imgs[i].cpu()  # [3, H, W]
+        pred_mask = pred_masks_binary[i, 0].cpu()  # [H, W]
+        
+        # Create colored overlay
+        overlay = img.clone()
+        
+        # Add semi-transparent color overlay for predicted mask
+        mask_indices = pred_mask > 0
+        
+        if gt_masks is None:
+            # No GT mask - use blue tint for predictions
+            overlay[0, mask_indices] = overlay[0, mask_indices] * 0.6  # Red channel
+            overlay[1, mask_indices] = overlay[1, mask_indices] * 0.6  # Green channel  
+            overlay[2, mask_indices] = overlay[2, mask_indices] * 0.6 + 0.4  # Blue channel
+        else:
+            # Has GT mask - use red tint for predictions
+            overlay[0, mask_indices] = overlay[0, mask_indices] * 0.5 + 0.5  # Red channel
+            overlay[1, mask_indices] = overlay[1, mask_indices] * 0.5  # Green channel
+            overlay[2, mask_indices] = overlay[2, mask_indices] * 0.5  # Blue channel
+            
+            # Add green contour for GT if available
+            gt_mask = gt_masks[i, 0].cpu()
+            if gt_mask.sum() > 0:
+                # Simple edge detection for GT mask
+                gt_edges = torch.zeros_like(gt_mask)
+                gt_edges[1:-1, 1:-1] = (
+                    (gt_mask[1:-1, 1:-1] > 0) & (
+                        (gt_mask[:-2, 1:-1] == 0) | (gt_mask[2:, 1:-1] == 0) |
+                        (gt_mask[1:-1, :-2] == 0) | (gt_mask[1:-1, 2:] == 0)
+                    )
+                ).float()
+                
+                # Add green contour
+                edge_indices = gt_edges > 0
+                overlay[0, edge_indices] = 0  # Red channel
+                overlay[1, edge_indices] = 1  # Green channel
+                overlay[2, edge_indices] = 0  # Blue channel
+        
+        overlay_images.append(overlay)
+    
+    # Stack and save overlay images
+    if overlay_images:
+        compose = torch.stack(overlay_images, dim=0)
+        vutils.save_image(compose, fp=save_path, nrow=row_num, padding=10, normalize=True, value_range=(0, 1))
+    
+    return
