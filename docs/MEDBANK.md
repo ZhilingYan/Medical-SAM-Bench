@@ -6,10 +6,8 @@ MedBank is a large-scale, diverse medical image segmentation dataset designed to
 
 ## Dataset Statistics
 
-- **Total Datasets**: 18 public medical imaging datasets
-- **Imaging Modalities**: CT, MRI, Ultrasound, X-Ray, Dermoscopy, Microscopy, Fundus, Echo, Colonoscopy
-- **Anatomical Coverage**: Brain, Heart, Liver, Kidney, Lung, Skin, Eye, Cell, Breast, Colon, and more
-- **License Types**: Various (CC BY, CC BY-NC-SA, Academic use, etc.)
+- **Imaging Modalities**: Fundus, Dermoscopy, X-Ray, CT, MRI, Colonoscopy, Echo
+- **Anatomical Coverage**: Lung, Skin, Spleen, Liver, Kidney, Eye, Stomach, and more
 
 ## Datasets and Information
 
@@ -37,19 +35,19 @@ MedBank is a large-scale, diverse medical image segmentation dataset designed to
 
 ```
 MedBank/
-├── BreastTumor_UT_0/
-│   ├── images/
-│   │   ├── image_0001.png
-│   │   ├── image_0002.png
+├── ObjectofInterest_Modality_ID/
+│   ├── image/
+│   │   ├── case_idx_slice_001.png
+│   │   ├── case_idx_slice_002.png
 │   │   └── ...
-│   ├── masks/
-│   │   ├── image_0001.png
-│   │   ├── image_0002.png
+│   ├── mask/
+│   │   ├── case_idx_slice_001.png
+│   │   ├── case_idx_slice_002.png
 │   │   └── ...
 │   ├── train.txt
 │   ├── val.txt
 │   └── test.txt
-├── OpticDisc_OC_1/
+├── ObjectofInterest_Modality_ID/
 │   └── ...
 └── ...
 ```
@@ -57,90 +55,9 @@ MedBank/
 ## Data Format
 
 - **Images**: PNG format, various resolutions (512×512 to 2048×2048)
-- **Masks**: PNG format, binary or multi-class segmentation masks
+- **Masks**: PNG format, binary segmentation masks
 - **Split Files**: Text files containing image names for train/val/test splits
 
-## Usage Example
-
-```python
-import os
-from PIL import Image
-import numpy as np
-
-# Load an image and its mask
-dataset_path = "/path/to/MedBank/OpticCup_OC_2"
-image_name = "image_0001.png"
-
-image = Image.open(os.path.join(dataset_path, "images", image_name))
-mask = Image.open(os.path.join(dataset_path, "masks", image_name))
-
-# Convert to numpy arrays
-image_array = np.array(image)
-mask_array = np.array(mask)
-```
-
-## Data Preprocessing
-
-We provide a preprocessing script to standardize the data:
-
-```python
-# preprocess_medbank.py
-import os
-import numpy as np
-from PIL import Image
-from tqdm import tqdm
-
-def preprocess_medbank(root_dir, output_dir, target_size=1024):
-    """
-    Preprocess MedBank dataset for SAMed2 training
-    
-    Args:
-        root_dir: Path to MedBank root directory
-        output_dir: Path to save preprocessed data
-        target_size: Target image size (default: 1024)
-    """
-    tasks = os.listdir(root_dir)
-    
-    for task in tqdm(tasks, desc="Processing tasks"):
-        task_path = os.path.join(root_dir, task)
-        if not os.path.isdir(task_path):
-            continue
-            
-        # Create output directories
-        out_task_path = os.path.join(output_dir, task)
-        os.makedirs(os.path.join(out_task_path, "images"), exist_ok=True)
-        os.makedirs(os.path.join(out_task_path, "masks"), exist_ok=True)
-        
-        # Process images
-        image_dir = os.path.join(task_path, "images")
-        mask_dir = os.path.join(task_path, "masks")
-        
-        for img_name in os.listdir(image_dir):
-            # Load and resize image
-            img_path = os.path.join(image_dir, img_name)
-            mask_path = os.path.join(mask_dir, img_name)
-            
-            img = Image.open(img_path).convert('RGB')
-            mask = Image.open(mask_path).convert('L')
-            
-            # Resize
-            img = img.resize((target_size, target_size), Image.BILINEAR)
-            mask = mask.resize((target_size, target_size), Image.NEAREST)
-            
-            # Save
-            img.save(os.path.join(out_task_path, "images", img_name))
-            mask.save(os.path.join(out_task_path, "masks", img_name))
-        
-        # Copy split files
-        for split_file in ['train.txt', 'val.txt', 'test.txt']:
-            src = os.path.join(task_path, split_file)
-            dst = os.path.join(out_task_path, split_file)
-            if os.path.exists(src):
-                shutil.copy(src, dst)
-
-if __name__ == "__main__":
-    preprocess_medbank("/path/to/MedBank", "/path/to/MedBank_preprocessed")
-```
 
 ## Important Notes
 
@@ -152,23 +69,12 @@ When using MedBank, please ensure compliance with the individual licenses of eac
 - Some datasets may require registration or agreement to specific terms
 - Please cite the original papers when using specific datasets
 
-### Preprocessing
-All datasets have been preprocessed to ensure consistency:
-- Images resized to 1024×1024 for 2D data
-- Masks converted to binary or multi-class format as appropriate
-- File formats standardized to PNG for 2D images and NIfTI for 3D volumes
-
 ## Citation
 
-If you use MedBank in your research, please cite both our work and the original dataset papers:
+If you use MedBank in your research, please cite our work:
 
 ```bibtex
-@inproceedings{yan2025samed2,
-  title={SAMed2: Segment Anything in Medical Images with Learnable Prompting and Cross-Scale Consistency},
-  author={Yan, Zhiling and others},
-  booktitle={Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
-  year={2025}
-}
+TODO
 ```
 
 And the relevant original dataset citations from the table above.
@@ -179,4 +85,4 @@ MedBank itself does not own any of the included datasets. Each dataset retains i
 
 ## Acknowledgments
 
-We thank all the original dataset creators and the medical imaging community for making these valuable resources publicly available. Special thanks to the challenge organizers and researchers who have contributed to advancing medical image segmentation through open data sharing. 
+We thank all the original dataset creators and the medical imaging community for making these valuable resources publicly available.
