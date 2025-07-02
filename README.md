@@ -223,20 +223,20 @@ If you find SAMed-2 useful in your research, please consider citing:
 
 **Contributors:**
 
-[Zhiling Yan¹](https://scholar.google.com/citations?user=xxx), 
-[Sifan Song²](https://scholar.google.com/citations?user=xxx), 
-[Dingjie Song¹](https://scholar.google.com/citations?user=xxx), 
-[Yiwei Li³](https://scholar.google.com/citations?user=xxx), 
-[Rong Zhou¹](https://scholar.google.com/citations?user=xxx), 
-[Weixiang Sun⁴](https://scholar.google.com/citations?user=xxx), 
-[Zhennong Chen²](https://scholar.google.com/citations?user=xxx), 
-[Sekeun Kim²](https://scholar.google.com/citations?user=xxx), 
-[Hui Ren²](https://scholar.google.com/citations?user=xxx), 
-[Tianming Liu³](https://scholar.google.com/citations?user=xxx), 
-[Quanzheng Li²](https://scholar.google.com/citations?user=xxx), 
-[Xiang Li²](https://scholar.google.com/citations?user=xxx), 
-[Lifang He¹](https://scholar.google.com/citations?user=xxx), 
-[Lichao Sun¹](https://scholar.google.com/citations?user=xxx)
+[Zhiling Yan¹](https://scholar.google.com/citations?user=zL4fjh8AAAAJ&hl=zh-CN&oi=ao), 
+[Sifan Song²](https://scholar.google.com/citations?user=A-SP7VYAAAAJ&hl=zh-CN&oi=ao), 
+[Dingjie Song¹](https://scholar.google.com/citations?user=YLQ8DCsAAAAJ&hl=zh-CN&oi=ao), 
+[Yiwei Li³](https://scholar.google.com/citations?user=sfEPWiAAAAAJ&hl=zh-CN&oi=ao), 
+[Rong Zhou¹](https://scholar.google.com/citations?user=pFuTnoIAAAAJ&hl=zh-CN&oi=ao), 
+[Weixiang Sun⁴](https://scholar.google.com/citations?user=zizf0i0AAAAJ&hl=zh-CN&oi=ao), 
+[Zhennong Chen²](https://scholar.google.com/citations?user=9TL6M4wAAAAJ&hl=zh-CN&oi=ao), 
+[Sekeun Kim²](https://scholar.google.com/citations?user=tU6pacYAAAAJ&hl=zh-CN&oi=ao), 
+[Hui Ren²](https://scholar.google.com/citations?user=-8N8iIYAAAAJ&hl=zh-CN&oi=ao), 
+[Tianming Liu³](https://scholar.google.com/citations?user=92RPXm0AAAAJ&hl=zh-CN&oi=ao), 
+[Quanzheng Li²](https://scholar.google.com/citations?user=MHq2z7oAAAAJ&hl=zh-CN&oi=ao), 
+[Xiang Li²](https://scholar.google.com/citations?user=MjkwwiQAAAAJ&hl=zh-CN&oi=ao), 
+[Lifang He¹](https://scholar.google.com/citations?user=obgTcyoAAAAJ&hl=zh-CN&oi=ao), 
+[Lichao Sun¹*](https://scholar.google.com/citations?user=WhGUE7AAAAAJ&hl=zh-CN&oi=ao)
 
 ¹Lehigh University  
 ²Massachusetts General Hospital and Harvard Medical School  
