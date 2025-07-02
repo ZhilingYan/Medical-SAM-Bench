@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMed2: Segment Anything in Medical Images 2</title>
+    <title>SAMed-2: Selective Memory Enhanced Medical Segment Anything Model</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,23 +22,34 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1 class="main-title">SAMed2: Segment Anything in Medical Images 2</h1>
-                <h2 class="subtitle">Learnable Prompting and Cross-Scale Consistency for Universal Medical Image Segmentation</h2>
-                <h3 class="conference">MICCAI 2025</h3>
+                <h1 class="main-title">SAMed-2: Selective Memory Enhanced Medical Segment Anything Model</h1>
+                <h2 class="subtitle">Medical Image Segmentation with Memory-Enhanced SAM</h2>
+                <h3 class="conference">arXiv 2025</h3>
                 
                 <!-- Authors -->
                 <div class="authors">
                     <a href="https://scholar.google.com/citations?user=xxx">Zhiling Yan<sup>1</sup></a>,
-                    <a href="#">Author Name<sup>2</sup></a>,
-                    <a href="#">Author Name<sup>3</sup></a>,
-                    <a href="#">Author Name<sup>1</sup></a>
+                    <a href="https://scholar.google.com/citations?user=xxx">Sifan Song<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Dingjie Song<sup>1</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Yiwei Li<sup>3</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Rong Zhou<sup>1</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Weixiang Sun<sup>4</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Zhennong Chen<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Sekeun Kim<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Hui Ren<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Tianming Liu<sup>3</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Quanzheng Li<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Xiang Li<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=xxx">Lifang He<sup>1</sup></a>,
+                    <a href="mailto:lis221@lehigh.edu">Lichao Sun<sup>1</sup></a>
                 </div>
                 
                 <!-- Affiliations -->
                 <div class="affiliations">
-                    <span><sup>1</sup>Lehigh University</span>
-                    <span><sup>2</sup>Institution 2</span>
-                    <span><sup>3</sup>Institution 3</span>
+                    <span><sup>1</sup>Lehigh University, Bethlehem, PA, USA</span>
+                    <span><sup>2</sup>Massachusetts General Hospital and Harvard Medical School, Boston, MA, USA</span>
+                    <span><sup>3</sup>University of Georgia, Athens, GA, USA</span>
+                    <span><sup>4</sup>University of Notre Dame, Notre Dame, IN, USA</span>
                 </div>
                 
                 <!-- Links -->
@@ -46,10 +57,10 @@
                     <a href="https://arxiv.org/abs/xxxx.xxxxx" class="link-button">
                         <i class="fas fa-file-pdf"></i> Paper
                     </a>
-                    <a href="https://github.com/yourusername/SAMed2" class="link-button">
+                    <a href="https://github.com/ZhilingYan/Medical-SAM-Bench" class="link-button">
                         <i class="fab fa-github"></i> Code
                     </a>
-                    <a href="demo.html" class="link-button">
+                    <a href="https://github.com/ZhilingYan/Medical-SAM-Bench/blob/main/docs/DEMO.md" class="link-button">
                         <i class="fas fa-play-circle"></i> Demo
                     </a>
                     <a href="#dataset" class="link-button">
@@ -70,8 +81,8 @@
                 <!-- <img src="images/samed2_overview.png" alt="SAMed2 Overview" class="hero-image"> -->
                 <div class="highlight-box">
                     <p class="highlight-text">
-                        🔥 <strong>[NEW!]</strong> SAMed2 achieves state-of-the-art performance on 18 medical imaging benchmarks, 
-                        supporting CT, MRI, ultrasound, dermoscopy, and microscopy images with a unified model architecture.
+                        🔥 <strong>[NEW!]</strong> SAMed-2 achieves state-of-the-art performance on medical imaging benchmarks, 
+                        outperforming SAM, MedSAM, SAM2, and MedSAM2 with our memory-enhanced architecture.
                     </p>
                 </div>
             </div>
@@ -83,48 +94,13 @@
         <div class="container">
             <h2 class="section-title">Abstract</h2>
             <p class="abstract-text">
-                SAMed2 represents a breakthrough in medical image segmentation by adapting the Segment Anything Model 2 (SAM2) 
-                for the medical domain. Our approach introduces learnable medical prompts and cross-scale consistency mechanisms 
-                that enable superior performance across diverse medical imaging modalities.
+                SAMed-2 is a new foundation model for medical image segmentation built upon the SAM-2 architecture. 
+                Specifically, we introduce a temporal adapter into the image encoder to capture image correlations 
+                and a confidence-driven memory mechanism to store high-certainty features for later retrieval. 
+                This memory-based strategy counters the pervasive noise in large-scale medical datasets and 
+                mitigates catastrophic forgetting when encountering new tasks or modalities.
             </p>
             
-            <div class="key-contributions">
-                <div class="contribution">
-                    <div class="contribution-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Learnable Medical Prompts</h3>
-                    <p>We introduce a memory bank of 640 learnable prompts specifically designed for medical imaging tasks, 
-                    enabling the model to capture domain-specific patterns.</p>
-                </div>
-                
-                <div class="contribution">
-                    <div class="contribution-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3>Cross-Scale Consistency</h3>
-                    <p>Our novel cross-scale consistency mechanism ensures robust segmentation across different image 
-                    resolutions and modalities.</p>
-                </div>
-                
-                <div class="contribution">
-                    <div class="contribution-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>State-of-the-Art Performance</h3>
-                    <p>SAMed2 achieves an average Dice score of 92.3% across 18 medical imaging benchmarks, 
-                    outperforming previous methods by a significant margin.</p>
-                </div>
-                
-                <div class="contribution">
-                    <div class="contribution-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3>Open Source</h3>
-                    <p>We release our code, models, and the MedBank dataset to facilitate reproducibility 
-                    and advance medical image segmentation research.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -136,102 +112,31 @@
                 <embed src="images/architecture.pdf" type="application/pdf" width="100%" height="600px" class="method-image" />
                 <div class="method-description">
                     <p>
-                        SAMed2 builds upon SAM2's architecture with three key innovations:
+                        SAMed-2 builds upon SAM-2's architecture with key innovations:
                     </p>
                     <ul>
-                        <li><strong>Medical Prompt Memory Bank:</strong> A learnable set of 640 prompts that encode medical domain knowledge</li>
-                        <li><strong>Cross-Scale Feature Fusion:</strong> Multi-scale feature aggregation for handling varying organ sizes</li>
-                        <li><strong>Modality-Aware Encoding:</strong> Adaptive encoding strategies for different imaging modalities</li>
+                        <li><strong>Temporal Adapter:</strong> Captures image correlations in the image encoder</li>
+                        <li><strong>Confidence-Driven Memory:</strong> Stores high-certainty features for later retrieval</li>
+                        <li><strong>MedBank:</strong> A large scale medical datasets</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results Section -->
-    <section class="results">
-        <div class="container">
-            <h2 class="section-title">Performance</h2>
-            
-            <!-- Benchmark Results -->
-            <div class="results-table">
-                <h3>Comparison with State-of-the-Art Methods</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Method</th>
-                            <th>CT (Dice)</th>
-                            <th>MRI (Dice)</th>
-                            <th>Ultrasound (Dice)</th>
-                            <th>Dermoscopy (Dice)</th>
-                            <th>Average (Dice)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>SAM</td>
-                            <td>75.6</td>
-                            <td>72.1</td>
-                            <td>69.8</td>
-                            <td>81.2</td>
-                            <td>74.3</td>
-                        </tr>
-                        <tr>
-                            <td>MedSAM</td>
-                            <td>82.3</td>
-                            <td>80.1</td>
-                            <td>77.6</td>
-                            <td>85.6</td>
-                            <td>81.2</td>
-                        </tr>
-                        <tr>
-                            <td>SAM2</td>
-                            <td>81.2</td>
-                            <td>78.9</td>
-                            <td>75.6</td>
-                            <td>84.3</td>
-                            <td>79.8</td>
-                        </tr>
-                        <tr>
-                            <td>MedSAM2</td>
-                            <td>84.5</td>
-                            <td>82.3</td>
-                            <td>79.8</td>
-                            <td>87.1</td>
-                            <td>83.4</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td><strong>SAMed2 (Ours)</strong></td>
-                            <td><strong>87.8</strong></td>
-                            <td><strong>85.6</strong></td>
-                            <td><strong>83.4</strong></td>
-                            <td><strong>89.3</strong></td>
-                            <td><strong>86.7</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- Visual Results -->
-            <div class="visual-results">
-                <h3>Qualitative Results</h3>
-                <!-- <img src="images/results_comparison.png" alt="Visual Results Comparison" class="results-image"> -->
-            </div>
-        </div>
-    </section>
 
     <!-- Dataset Section -->
     <section id="dataset" class="dataset">
         <div class="container">
             <h2 class="section-title">MedBank Dataset</h2>
             <p class="dataset-description">
-                MedBank is a comprehensive collection of 18 public medical imaging datasets for training and evaluating 
+                MedBank is a comprehensive collection of various public medical imaging datasets for training and evaluating 
                 medical image segmentation models. It covers diverse modalities and anatomical structures.
             </p>
             
             <div class="dataset-stats">
                 <div class="stat">
-                    <h3>18</h3>
+                    <h3>17</h3>
                     <p>Datasets</p>
                 </div>
                 <div class="stat">
@@ -239,18 +144,15 @@
                     <p>Images</p>
                 </div>
                 <div class="stat">
-                    <h3>40+</h3>
+                    <h3>20+</h3>
                     <p>Organ Types</p>
                 </div>
                 <div class="stat">
-                    <h3>6</h3>
+                    <h3>7</h3>
                     <p>Modalities</p>
                 </div>
             </div>
             
-            <a href="MEDBANK.md" class="download-button">
-                <i class="fas fa-download"></i> Download MedBank
-            </a>
         </div>
     </section>
 
@@ -263,19 +165,18 @@
                     <!-- <img src="images/demo_preview.png" alt="Demo Preview" class="demo-image"> -->
                 </div>
                 <div class="demo-description">
-                    <h3>Try SAMed2 in Your Browser</h3>
+                    <h3>Try SAMed-2 in Your Local Machine</h3>
                     <p>
                         Our interactive demo allows you to segment medical images in real-time. 
                         Upload your own medical images or try our examples.
                     </p>
                     <ul>
-                        <li>Support for CT, MRI, X-Ray, Ultrasound, and more</li>
                         <li>Interactive point and box prompts</li>
                         <li>Real-time segmentation results</li>
-                        <li>Export masks in multiple formats</li>
+                        <li>Export masks for further analysis</li>
                     </ul>
-                    <a href="demo.html" class="try-demo-button">
-                        <i class="fas fa-play"></i> Launch Demo
+                    <a href="https://github.com/ZhilingYan/Medical-SAM-Bench/blob/main/docs/DEMO.md" class="try-demo-button">
+                        <i class="fas fa-play"></i> View Demo Guide
                     </a>
                 </div>
             </div>
@@ -287,12 +188,11 @@
         <div class="container">
             <h2 class="section-title">Citation</h2>
             <div class="citation-box">
-                <pre><code>@inproceedings{yan2025samed2,
-  title={SAMed2: Segment Anything in Medical Images with Learnable Prompting and Cross-Scale Consistency},
-  author={Yan, Zhiling and others},
-  booktitle={Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
-  year={2025},
-  organization={Springer}
+                <pre><code>@article{yan2025samed2,
+  title={SAMed-2: Selective Memory Enhanced Medical Segment Anything Model},
+  author={TODO: Full author list},
+  journal={TODO: Journal name},
+  year={2025}
 }</code></pre>
                 <button class="copy-button" onclick="copyToClipboard()">
                     <i class="fas fa-copy"></i> Copy
@@ -305,14 +205,11 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="acknowledgment">
-                    This work was supported by [Funding Agency]. We thank the medical imaging community for their valuable feedback.
-                </p>
                 <p class="license">
                     The code is released under the Apache 2.0 License. The dataset follows individual licenses of constituent datasets.
                 </p>
                 <p class="copyright">
-                    © 2025 SAMed2 Team. Website template inspired by <a href="https://llava-vl.github.io/">LLaVA</a>.
+                    © 2025 SAMed-2 Team. Website template inspired by <a href="https://llava-vl.github.io/">LLaVA</a>.
                 </p>
             </div>
         </div>
