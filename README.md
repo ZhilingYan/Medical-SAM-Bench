@@ -6,7 +6,6 @@
 
 [![Project Page](https://img.shields.io/badge/🌐_Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
 [![Paper](https://img.shields.io/badge/📄_Paper-Arxiv-purple)](https://arxiv.org/abs/xxxx.xxxxx)
-[![Demo](https://img.shields.io/badge/🎮_Demo-SliceUI-green)](docs/DEMO.md)
 [![Data](https://img.shields.io/badge/💾_Data-MedBank-orange)](docs/MEDBANK.md)
 [![License](https://img.shields.io/badge/📜_License-Apache_2.0-yellow.svg)](LICENSE)
 
@@ -24,7 +23,6 @@
 <tr>
 <td width="33%" align="center"><b>🧠 Memory-Enhanced SOTA</b><br>Best performance on medical benchmarks</td>
 <td width="33%" align="center"><b>🔧 Unified Framework</b><br>Fair comparison of all Medical SAM variants</td>
-<td width="33%" align="center"><b>🎮 Interactive Tools</b><br>Demo and local UI for interactive medical image segmentation</td>
 </tr>
 </table>
 
@@ -34,7 +32,6 @@ SAMed-2 is a new foundation model for medical image segmentation built upon the 
 
 ## 📰 News
 
-> **[07/2025]** 🎮 Interactive demo tool released - try SAMed-2 on your medical images!  
 > **[06/2025]** 🎉 SAMed-2 accepted by MICCAI 2025!  
 > **[06/2025]** 🚀 Initial release of SAMed-2!
 
@@ -202,23 +199,12 @@ bash run.sh
 
 </div>
 
-## 🎮 Demo
-
-Try our interactive demo powered by SliceUI! [Demo Guide](docs/DEMO.md)
-
-[![Demo Video](https://img.youtube.com/vi/DEMO_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=DEMO_VIDEO_ID)
-
 ## 📚 Citation & Contributors
 
 If you find SAMed-2 useful in your research, please consider citing:
 
 ```bibtex
-@article{yan2025samed2,
-  title={SAMed-2: Selective Memory Enhanced Medical Segment Anything Model},
-  author={Yan, Zhiling and Song, Sifan and Song, Dingjie and Li, Yiwei and Zhou, Rong and Sun, Weixiang and Chen, Zhennong and Kim, Sekeun and Ren, Hui and Liu, Tianming and Li, Quanzheng and Li, Xiang and He, Lifang and Sun, Lichao},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
-  year={2025}
-}
+
 ```
 
 **Contributors:**
@@ -248,5 +234,4 @@ If you find SAMed-2 useful in your research, please consider citing:
 We gratefully acknowledge:
 - **[SAM2](https://github.com/facebookresearch/segment-anything-2)** - The foundation model we build upon
 - **[MedSAM](https://github.com/bowang-lab/MedSAM)** - Inspiration for medical adaptation
-- **[SliceUI](https://github.com/yourusername/sliceUI)** - Interactive demo interface 
 
