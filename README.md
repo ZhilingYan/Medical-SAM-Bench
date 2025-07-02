@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏥 SAMed-2: Selective Memory Enhanced Medical SAM
+# 🏥 SAMed-2:<br>Selective Memory Enhanced Medical SAM
 
 ### *Medical Image Segmentation with Memory-Enhanced SAM*
 
