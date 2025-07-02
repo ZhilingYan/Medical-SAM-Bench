@@ -35,7 +35,7 @@
                     <a href="https://scholar.google.com/citations?user=pFuTnoIAAAAJ&hl=zh-CN&oi=ao">Rong Zhou<sup>1</sup></a>,
                     <a href="https://scholar.google.com/citations?user=zizf0i0AAAAJ&hl=zh-CN&oi=ao">Weixiang Sun<sup>4</sup></a>,
                     <a href="https://scholar.google.com/citations?user=9TL6M4wAAAAJ&hl=zh-CN&oi=ao">Zhennong Chen<sup>2</sup></a>,
-                    <a href="hhttps://scholar.google.com/citations?user=tU6pacYAAAAJ&hl=zh-CN&oi=ao">Sekeun Kim<sup>2</sup></a>,
+                    <a href="https://scholar.google.com/citations?user=tU6pacYAAAAJ&hl=zh-CN&oi=ao">Sekeun Kim<sup>2</sup></a>,
                     <a href="https://scholar.google.com/citations?user=-8N8iIYAAAAJ&hl=zh-CN&oi=ao">Hui Ren<sup>2</sup></a>,
                     <a href="https://scholar.google.com/citations?user=92RPXm0AAAAJ&hl=zh-CN&oi=ao">Tianming Liu<sup>3</sup></a>,
                     <a href="https://scholar.google.com/citations?user=MHq2z7oAAAAJ&hl=zh-CN&oi=ao">Quanzheng Li<sup>2</sup></a>,
@@ -63,31 +63,16 @@
                     <a href="https://github.com/ZhilingYan/Medical-SAM-Bench/blob/main/docs/DEMO.md" class="link-button">
                         <i class="fas fa-play-circle"></i> Demo
                     </a>
-                    <a href="#dataset" class="link-button">
+                    <a href="https://github.com/ZhilingYan/Medical-SAM-Bench/blob/main/docs/MEDBANK.md" class="link-button">
                         <i class="fas fa-database"></i> Dataset
                     </a>
-                    <a href="MODEL_ZOO.md" class="link-button">
-                        <i class="fas fa-download"></i> Models
+                    <a href="https://drive.google.com/file/d/1JVmZnpWip7AIi8o9J1heog_Kl5uHGHcP/view?usp=sharing" class="link-button">
+                        <i class="fas fa-download"></i> Model
                     </a>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- Hero Section with Video/Image -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <!-- <img src="images/samed2_overview.png" alt="SAMed2 Overview" class="hero-image"> -->
-                <div class="highlight-box">
-                    <p class="highlight-text">
-                        🔥 <strong>[NEW!]</strong> SAMed-2 achieves state-of-the-art performance on medical imaging benchmarks, 
-                        outperforming SAM, MedSAM, SAM2, and MedSAM2 with our memory-enhanced architecture.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Abstract Section -->
     <section class="abstract">
@@ -95,7 +80,7 @@
             <h2 class="section-title">Abstract</h2>
             <p class="abstract-text">
                 SAMed-2 is a new foundation model for medical image segmentation built upon the SAM-2 architecture. 
-                Specifically, we introduce a temporal adapter into the image encoder to capture image correlations 
+                We introduce a temporal adapter into the image encoder to capture image correlations 
                 and a confidence-driven memory mechanism to store high-certainty features for later retrieval. 
                 This memory-based strategy counters the pervasive noise in large-scale medical datasets and 
                 mitigates catastrophic forgetting when encountering new tasks or modalities.
@@ -108,18 +93,14 @@
     <section class="method">
         <div class="container">
             <h2 class="section-title">Method</h2>
-            <div class="method-content">
-                <embed src="images/architecture.pdf" type="application/pdf" width="100%" height="600px" class="method-image" />
-                <div class="method-description">
-                    <p>
-                        SAMed-2 builds upon SAM-2's architecture with key innovations:
-                    </p>
-                    <ul>
-                        <li><strong>Temporal Adapter:</strong> Captures image correlations in the image encoder</li>
-                        <li><strong>Confidence-Driven Memory:</strong> Stores high-certainty features for later retrieval</li>
-                        <li><strong>MedBank:</strong> A large scale medical datasets</li>
-                    </ul>
-                </div>
+            <div class="method-figure" style="text-align: center; margin: 40px 0;">
+                <embed src="images/Method.pdf" type="application/pdf" width="100%" height="600px" style="max-width: 1200px; margin: 0 auto; display: block;" />
+                <p style="margin-top: 20px; font-style: italic; color: #666; font-size: 14px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong>Figure 1:</strong> Workflow of SAMed-2. It integrates a temporal adapter in the image
+                    encoder to capture multi-dimensional context and a confidence-driven memory
+                    module to store high-certainty features. During inference, the model retrieves
+                    these memory features and fuses them with image embeddings via attention.
+                </p>
             </div>
         </div>
     </section>
@@ -188,12 +169,9 @@
         <div class="container">
             <h2 class="section-title">Citation</h2>
             <div class="citation-box">
-                <pre><code>@article{yan2025samed2,
-  title={SAMed-2: Selective Memory Enhanced Medical Segment Anything Model},
-  author={TODO: Full author list},
-  journal={TODO: Journal name},
-  year={2025}
-}</code></pre>
+                <pre><code>
+                    TODO
+                </code></pre>
                 <button class="copy-button" onclick="copyToClipboard()">
                     <i class="fas fa-copy"></i> Copy
                 </button>
