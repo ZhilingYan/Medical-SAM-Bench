@@ -5,7 +5,7 @@
 ### *Medical Image Segmentation with Memory-Enhanced SAM*
 
 [![Project Page](https://img.shields.io/badge/🌐_Project-Website-blue)](https://zhilingyan.github.io/Medical-SAM-Bench/)
-[![Paper](https://img.shields.io/badge/📄_Paper-Arxiv-purple)](https://arxiv.org/abs/xxxx.xxxxx)
+[![Paper](https://img.shields.io/badge/📄_Paper-Arxiv-purple)](https://arxiv.org/abs/2507.03698)
 [![Data](https://img.shields.io/badge/💾_Data-MedBank-orange)](docs/MEDBANK.md)
 [![License](https://img.shields.io/badge/📜_License-Apache_2.0-yellow.svg)](LICENSE)
 
@@ -73,10 +73,10 @@ pip install -r requirements.txt
 | Model | Architecture | Medical<br>Fine-tuned | Performance | Download |
 |:-----:|:------------:|:---------------------:|:-----------:|:--------:|
 | **SAMed-2** ⭐ | SAM2-Hiera-S | ✅ | **Best** | [📥 Download](https://drive.google.com/file/d/1JVmZnpWip7AIi8o9J1heog_Kl5uHGHcP/view?usp=sharing) |
-| MedSAM2 | SAM2-Hiera-T | ✅ | Good | [📥 Download](https://drive.google.com/file/d/1XQmJ13-SahH-57eH1-UabU1OpGpoTZWT/view?usp=sharing) |
-| MedSAM | SAM-ViT-B | ✅ | Good | [📥 Download](https://drive.google.com/file/d/1V81_3KuJ-7q1gzLYcQFPCTAAymfkxh6Y/view?usp=sharing) |
-| SAM2 | SAM2-Hiera-S | ❌ | Baseline | [📥 Download](https://drive.google.com/file/d/1bNtsqOCRnzDOb_10EN9bAACLPew32yus/view?usp=sharing) |
-| SAM | SAM-ViT-B | ❌ | Baseline | [📥 Download](https://drive.google.com/file/d/1LgRKsBkCYOeQQRWyF1RnXZgwe-_xfR0_/view?usp=sharing) |
+| [MedSAM2](https://github.com/SuperMedIntel/Medical-SAM2) | SAM2-Hiera-T | ✅ | Good | [📥 Download](https://drive.google.com/file/d/1XQmJ13-SahH-57eH1-UabU1OpGpoTZWT/view?usp=sharing) |
+| [MedSAM](https://github.com/bowang-lab/MedSAM) | SAM-ViT-B | ✅ | Good | [📥 Download](https://drive.google.com/file/d/1V81_3KuJ-7q1gzLYcQFPCTAAymfkxh6Y/view?usp=sharing) |
+| [SAM2](https://github.com/facebookresearch/sam2) | SAM2-Hiera-S | ❌ | Baseline | [📥 Download](https://drive.google.com/file/d/1bNtsqOCRnzDOb_10EN9bAACLPew32yus/view?usp=sharing) |
+| [SAM](https://github.com/facebookresearch/segment-anything) | SAM-ViT-B | ❌ | Baseline | [📥 Download](https://drive.google.com/file/d/1LgRKsBkCYOeQQRWyF1RnXZgwe-_xfR0_/view?usp=sharing) |
 
 </div>
 
@@ -144,7 +144,7 @@ python main.py -net sam -sam_ckpt checkpoints/sam_vit_b_01ec64.pth
 | Dataset | Modality | Size | Download |
 |:-------:|:--------:|:----:|:--------:|
 | **Optic Cup** | Fundus | ~100MB | [📥 Download](https://drive.google.com/file/d/1jayJ9q627t6kNXNsacfW3b8i-oVPJ0wz/view?usp=sharing) |
-| **Brain Tumor** | MRI | ~200MB | [📥 Download](https://drive.google.com/file/d/1WuJ8fD2stAqUKxYzsws2mMgS3M6JtFXK/view?usp=sharing) |
+| **Brain Tumor** | MRI | ~100MB | [📥 Download](https://drive.google.com/file/d/1WuJ8fD2stAqUKxYzsws2mMgS3M6JtFXK/view?usp=sharing) |
 
 </div>
 
@@ -204,7 +204,12 @@ bash run.sh
 If you find SAMed-2 useful in your research, please consider citing:
 
 ```bibtex
-
+@article{yan2025samed,
+  title={SAMed-2: Selective Memory Enhanced Medical Segment Anything Model},
+  author={Yan, Zhiling and Song, Sifan and Song, Dingjie and Li, Yiwei and Zhou, Rong and Sun, Weixiang and Chen, Zhennong and Kim, Sekeun and Ren, Hui and Liu, Tianming and others},
+  journal={arXiv preprint arXiv:2507.03698},
+  year={2025}
+}
 ```
 
 **Contributors:**
