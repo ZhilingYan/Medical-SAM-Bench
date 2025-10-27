@@ -214,7 +214,7 @@ class MultiScaleBlock(nn.Module):
         if dim != dim_out:
             self.proj = nn.Linear(dim, dim_out)
             
-            
+        self.fancy_fusion = FusionBlock(dim_out, num_heads=4)        
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         shortcut = x  # B, H, W, C
