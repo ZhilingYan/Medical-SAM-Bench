@@ -44,7 +44,7 @@ def parse_args():
     parser.add_argument('-seed', type=int, default=42, help='random seed')
     parser.add_argument('-gpu_device', type=int, default=0, help='use which gpu')
     parser.add_argument('-out_size', type=int, default=1024, help='output_size')
-    parser.add_argument('-b', type=int, default=1, help='batch size for dataloader')
+    parser.add_argument('-b', type=int, default=4, help='batch size for dataloader')
     parser.add_argument('-lr', type=float, default=1e-4, help='initial learning rate')
     parser.add_argument('-weight_decay', type=float, default=0.01, help='weight decay (default: 0.01)')
     parser.add_argument('-num_workers', type=int, default=0)
