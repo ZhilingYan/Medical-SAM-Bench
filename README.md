@@ -32,7 +32,7 @@ SAMed-2 is a new foundation model for medical image segmentation built upon the 
 
 ## 📰 News
 
-> **[06/2025]** 🎉 SAMed-2 accepted by MICCAI 2025!  
+> **[06/2025]** 🎉 SAMed-2 is accepted by MICCAI 2025!  
 > **[06/2025]** 🚀 Initial release of SAMed-2!
 
 ## 📜 Code License
